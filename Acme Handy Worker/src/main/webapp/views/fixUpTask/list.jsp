@@ -32,16 +32,20 @@
 			titleKey="fixUpTask.description" />
 		<display:column property="address" titleKey="fixUpTask.address" />
 
-		<display:column>
+		<display:column titleKey="fixUpTask.show">
 			<a href="fix-up-task/customer/show.do?fixUpTaskId=${row.id}">
 				<spring:message code="fixUpTask.show" /></a>
 		</display:column>
-		<display:column titleKey="fix.edit">
+		<display:column titleKey="fixUpTask.edit">
 		<a href="fix-up-task/customer/edit.do?fixUpTaskId=${row.id}"><spring:message code="fix.edit" /></a>
 		</display:column>
-		<display:column>
+		<display:column titleKey="fixUpTask.delete">
 			<a href="fix-up-task/customer/delete.do?fixUpTaskId=${row.id}">
 				<spring:message code="fixUpTask.delete" /></a>
+		</display:column>
+		<display:column titleKey="customer.quolet">
+			<a href="quolet/customer/list.do?fixUpTaskId=${row.id}">
+				<spring:message code="customer.quolet" /></a>
 		</display:column>
 
 	</display:table>
@@ -69,8 +73,12 @@
 			<a href="fix-up-task/handy-worker/show.do?fixUpTaskId=${row.id}">
 				<spring:message code="fixUpTask.show" /></a>
 		</display:column>
-
+		
+        <display:column>
+			<a href="quolet/handy-worker/list.do?fixUpTaskId=${row.id}">
+				<spring:message code="customer.quolet" /></a>
+		</display:column>
 	</display:table>
-
+	
 </security:authorize>
 

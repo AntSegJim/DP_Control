@@ -2982,4 +2982,15 @@
 		</property>
 		<property name="handyWorker" ref="handyWorker3"></property>
 	</bean>
+	
+	<!-- Quolet -->
+	<bean id="quolet1" class="domain.Quolet">
+		<property name="ticker" value="231219-ABC123"></property>
+		<property name="moment" value="05/06/2019 11:30"></property>
+		<property name="body" value="Breve resumen del body quolet"></property>
+		<property name="picture" value="https://www.google.com"></property>
+		<property name="draftMode" value="1"></property>
+		<property name="fixUpTask" ref="fixUpTask5"></property>
+	</bean>
+	
 </beans>

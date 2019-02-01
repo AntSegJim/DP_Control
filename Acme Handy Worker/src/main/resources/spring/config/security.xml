@@ -116,7 +116,13 @@
 		<security:intercept-url pattern="/fix-up-task/customer/delete.do" access="hasRole('CUSTOMER')" /> 
 		<security:intercept-url pattern="/fix-up-task/customer/edit.do" access="hasRole('CUSTOMER')" /> 
 		<security:intercept-url pattern="/customer/action-1.do" access="hasRole('CUSTOMER')" /> 
-		<security:intercept-url pattern="/customer/action-2.do" access="hasRole('CUSTOMER')" /> 
+		<security:intercept-url pattern="/customer/action-2.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/quolet/customer/list.do" access="hasRole('CUSTOMER')"/>
+		<security:intercept-url pattern="/quolet/customer/create.do" access="hasRole('CUSTOMER')"/>	
+		<security:intercept-url pattern="/quolet/customer/save.do" access="hasRole('CUSTOMER')"/>		
+		<security:intercept-url pattern="/quolet/customer/delete.do" access="hasRole('CUSTOMER')"/>			
+		<security:intercept-url pattern="/quolet/customer/edit.do" access="hasRole('CUSTOMER')"/>
+		<security:intercept-url pattern="/quolet/customer/show.do" access="hasRole('CUSTOMER')"/>			
 		
 		<security:intercept-url pattern="/sponsorship/sponsor/list.do" access="hasRole('SPONSOR')" /> 
 		<security:intercept-url pattern="/sponsorship/sponsor/create.do" access="hasRole('SPONSOR')" />
@@ -134,7 +140,10 @@
 		<security:intercept-url pattern="/endorsement/handy-worker/edit.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/endorsement/handy-worker/show.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/endorsement/handy-worker/delete.do" access="hasRole('HANDYWORKER')"/>		
-		<security:intercept-url pattern="/endorsement/handy-worker/create.do" access="hasRole('HANDYWORKER')"/>		
+		<security:intercept-url pattern="/endorsement/handy-worker/create.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/quolet/handy-worker/list.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/quolet/handy-worker/show.do" access="hasRole('HANDYWORKER')"/>
+				
 			
 		
 		<security:intercept-url pattern="/messageBox/actor/list.do" access="hasRole('ADMIN') or hasRole('HANDYWORKER') or hasRole('CUSTOMER') or hasRole('SPONSOR') or hasRole('REFEREE')"/> 
