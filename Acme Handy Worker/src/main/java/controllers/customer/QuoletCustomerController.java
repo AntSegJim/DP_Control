@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -42,6 +43,7 @@ public class QuoletCustomerController extends AbstractController {
 			result.addObject("requestURI", "quolet/customer/list.do");
 			result.addObject("quolets", quolets);
 			result.addObject("fixUpTaskId", fixUpTaskId);
+			result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
 		} else
 			result.addObject("error", "Error");
 
@@ -82,6 +84,7 @@ public class QuoletCustomerController extends AbstractController {
 		Assert.notNull(quoletId);
 		result = new ModelAndView("quolet/show");
 		result.addObject("quolet", q);
+		result.addObject("language", LocaleContextHolder.getLocale().getLanguage());
 		return result;
 	}
 

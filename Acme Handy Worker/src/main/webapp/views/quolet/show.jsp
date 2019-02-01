@@ -15,11 +15,23 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <security:authorize access="hasRole('CUSTOMER')">
 
 	<spring:message code="quolet.ticker" />: ${quolet.ticker} <br />
-	<spring:message code="quolet.moment" />: ${quolet.moment} <br />
+	
+	<jstl:if test="${language eq 'es' }">
+	<spring:message code="quolet.moment" />:
+		<fmt:formatDate value="${quolet.moment}" pattern="dd-MM-yy HH:mm" />
+		<br />
+	</jstl:if>
+	
+	<jstl:if test="${language eq 'en' }">
+	<spring:message code="quolet.moment" />:
+		<fmt:formatDate value="${quolet.moment}" pattern="yy-MM-dd HH:mm" />
+		<br />
+	</jstl:if>
 	<spring:message code="quolet.body" />: ${quolet.body} <br />
 	<spring:message code="quolet.draftMode" />: ${quolet.draftMode} <br />
 	<spring:message code="quolet.fixUpTask" />: ${quolet.fixUpTask.id} <br />
@@ -38,7 +50,17 @@
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<spring:message code="quolet.ticker" />: ${quolet.ticker} <br />
-	<spring:message code="quolet.moment" />: ${quolet.moment} <br />
+	<jstl:if test="${language eq 'es' }">
+	<spring:message code="quolet.moment" />:
+		<fmt:formatDate value="${quolet.moment}" pattern="dd-MM-yy HH:mm" />
+		<br />
+	</jstl:if>
+	
+	<jstl:if test="${language eq 'en' }">
+	<spring:message code="quolet.moment" />:
+		<fmt:formatDate value="${quolet.moment}" pattern="yy-MM-dd HH:mm" />
+		<br />
+	</jstl:if>
 	<spring:message code="quolet.body" />: ${quolet.body} <br />
 	<spring:message code="quolet.draftMode" />: ${quolet.draftMode} <br />
 	<spring:message code="quolet.fixUpTask" />: ${quolet.fixUpTask.id} <br />

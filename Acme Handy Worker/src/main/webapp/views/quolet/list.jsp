@@ -29,7 +29,12 @@
         <p><spring:message code="quolet.list" /></p>
 		<display:table pagesize="5" name="quolets" id="row" requestURI="${requestURI}" >
 		<display:column property="ticker" titleKey="quolet.ticker" />
-		<display:column property="moment" titleKey="quolet.moment" />
+		<jstl:if test="${language eq 'es' }">
+			<display:column property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
+		</jstl:if>
+		<jstl:if test="${language eq 'en' }">
+			<display:column property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
+		</jstl:if>
 		<display:column property="body" titleKey="quolet.body" />
 		<display:column property="picture" titleKey="quolet.picture" />	
 		
@@ -72,7 +77,12 @@
         <p><spring:message code="quolet.list" /></p>
 		<display:table pagesize="5" name="quolets" id="row" requestURI="${requestURI}" >
 			<display:column property="ticker" titleKey="quolet.ticker" />
-			<display:column property="moment" titleKey="quolet.moment" />
+			<jstl:if test="${language eq 'es' }">
+				<display:column property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
+			</jstl:if>
+			<jstl:if test="${language eq 'en' }">
+				<display:column property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
+			</jstl:if>
 			<display:column property="body" titleKey="quolet.body" />
 			<display:column property="picture" titleKey="quolet.picture" />	
 			
