@@ -28,27 +28,28 @@
     
         <p><spring:message code="quolet.list" /></p>
 		<display:table pagesize="5" name="quolets" id="row" requestURI="${requestURI}" >
-		<display:column property="ticker" titleKey="quolet.ticker" />
+		
+		<display:column class="color" property="ticker" titleKey="quolet.ticker" />
 		<jstl:if test="${language eq 'es' }">
-			<display:column property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
+			<display:column class="color" property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
 		</jstl:if>
 		<jstl:if test="${language eq 'en' }">
-			<display:column property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
+			<display:column class="color" property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
 		</jstl:if>
-		<display:column property="body" titleKey="quolet.body" />
-		<display:column property="picture" titleKey="quolet.picture" />	
+		<display:column class="color" property="body" titleKey="quolet.body" />
+		<display:column class="color" property="picture" titleKey="quolet.picture" />	
 		
-		<display:column titleKey="fixUpTask.show">
+		<display:column class="color" titleKey="fixUpTask.show">
 			<a href="quolet/customer/show.do?quoletId=${row.id}">
 				<spring:message code="fixUpTask.show" /></a>
 		</display:column>
 		
-		<display:column titleKey="fixUpTask.edit">
+		<display:column class="color" titleKey="fixUpTask.edit">
 			<a href="quolet/customer/edit.do?quoletId=${row.id}">
 				<spring:message code="fixUpTask.edit" /></a>
 		</display:column>
 		
-		<display:column titleKey="fixUpTask.delete">
+		<display:column class="color" titleKey="fixUpTask.delete">
 			<a href="quolet/customer/delete.do?quoletId=${row.id}">
 				<spring:message code="fixUpTask.delete" /></a>
 		</display:column>
@@ -76,17 +77,17 @@
     <jstl:otherwise>
         <p><spring:message code="quolet.list" /></p>
 		<display:table pagesize="5" name="quolets" id="row" requestURI="${requestURI}" >
-			<display:column property="ticker" titleKey="quolet.ticker" />
+			<display:column class="color" property="ticker" titleKey="quolet.ticker" />
 			<jstl:if test="${language eq 'es' }">
-				<display:column property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
+				<display:column class="color" property="moment" titleKey="quolet.moment" format="{0,date,dd-MM-yy HH:mm}" />
 			</jstl:if>
 			<jstl:if test="${language eq 'en' }">
-				<display:column property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
+				<display:column class="color" property="moment" titleKey="quolet.moment" format="{0,date,yy/MM/dd HH:mm}" />
 			</jstl:if>
-			<display:column property="body" titleKey="quolet.body" />
-			<display:column property="picture" titleKey="quolet.picture" />	
+			<display:column class="color" property="body" titleKey="quolet.body" />
+			<display:column class="color" property="picture" titleKey="quolet.picture" />	
 			
-			<display:column titleKey="fixUpTask.show">
+			<display:column class="color" titleKey="fixUpTask.show">
 				<a href="quolet/handy-worker/show.do?quoletId=${row.id}">
 					<spring:message code="fixUpTask.show" /></a>
 		</display:column>
@@ -101,3 +102,41 @@
 </security:authorize>
 
 
+<script type="text/javascript">
+var x = document.getElementsByClassName("color");
+var i = 0;
+var d = new Date();
+while (i < x.length) {
+	var year = x[i+1].innerHTML.substr(0, 2);
+	var month = x[i+1].innerHTML.substr(3, 2);
+	var day = x[i+1].innerHTML.substr(6, 2);
+	var d2 = new Date('20'+year, month-1, day);
+	var diff = ((d.getTime()- d2.getTime())/(1000*60*60*24))/30;
+	if(diff < 1){
+		document.getElementsByClassName("color")[i].style.background='yellow';
+		document.getElementsByClassName("color")[i+1].style.background='yellow';
+		document.getElementsByClassName("color")[i+2].style.background='yellow';
+		document.getElementsByClassName("color")[i+3].style.background='yellow';
+		document.getElementsByClassName("color")[i+4].style.background='yellow';
+		document.getElementsByClassName("color")[i+5].style.background='yellow';
+		document.getElementsByClassName("color")[i+6].style.background='yellow';
+	}else if(diff > 1 && diff < 2){
+		document.getElementsByClassName("color")[i].style.background='green';
+		document.getElementsByClassName("color")[i+1].style.background='green';
+		document.getElementsByClassName("color")[i+2].style.background='green';
+		document.getElementsByClassName("color")[i+3].style.background='green';
+		document.getElementsByClassName("color")[i+4].style.background='green';
+		document.getElementsByClassName("color")[i+5].style.background='green';
+		document.getElementsByClassName("color")[i+6].style.background='green';
+	}else{
+		document.getElementsByClassName("color")[i].style.background='red';
+		document.getElementsByClassName("color")[i+1].style.background='red';
+		document.getElementsByClassName("color")[i+2].style.background='red';
+		document.getElementsByClassName("color")[i+3].style.background='red';
+		document.getElementsByClassName("color")[i+4].style.background='red';
+		document.getElementsByClassName("color")[i+5].style.background='red';
+		document.getElementsByClassName("color")[i+6].style.background='red';
+	}
+	i= i+7;
+}
+</script>
