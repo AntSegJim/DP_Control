@@ -27,6 +27,7 @@ import services.ApplicationService;
 import services.CustomerService;
 import services.FixUpTaskService;
 import services.HandyWorkerService;
+import services.QuoletService;
 import services.ReportService;
 import domain.Administrator;
 
@@ -48,6 +49,8 @@ public class AdministratorController extends AbstractController {
 	private CustomerService			customerService;
 	@Autowired
 	private HandyWorkerService		handyWorkerService;
+	@Autowired
+	private QuoletService			quoletService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -186,6 +189,10 @@ public class AdministratorController extends AbstractController {
 		result.addObject("customerFix", customerFix);
 
 		result.addObject("handyWorker10percent", handyWithMore10percent);
+
+		result.addObject("a", this.quoletService.a());
+		result.addObject("b", this.quoletService.b());
+		result.addObject("c", this.quoletService.c());
 		return result;
 	}
 }

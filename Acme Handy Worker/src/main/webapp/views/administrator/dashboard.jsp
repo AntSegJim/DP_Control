@@ -93,3 +93,17 @@
 <legend><spring:message code="administrator.Handy10percent" /></legend>
 ${handyWorker10percent}
 <br/></fieldset>
+
+<fieldset>
+<legend><spring:message code="administrator.a" /></legend>
+<spring:message code="administrator.mediaa" />: ${a}<br>
+<!--<spring:message code="administrator.mediaa2" />: ${a2}-->
+<br/></fieldset>
+<fieldset>
+<legend><spring:message code="administrator.b" /></legend>
+${b}
+<br/></fieldset>
+<fieldset>
+<legend><spring:message code="administrator.c" /></legend>
+${c}
+<br/></fieldset>

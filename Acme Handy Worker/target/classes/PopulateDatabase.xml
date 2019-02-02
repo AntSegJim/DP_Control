@@ -99,7 +99,7 @@
 
 
 	<bean id="userAccount8" class="security.UserAccount">
-		<property name="username" value="Maria" />
+		<property name="username" value="Juan" />
 		<property name="password" value="cbc19b07662418d5f14cc55657295924" />
 		<property name="authorities">
 			<list>
@@ -2389,9 +2389,9 @@
 	</bean>
 
 	<bean id="customer4" class="domain.Customer">
-		<property name="name" value="María"></property>
+		<property name="name" value="Juan"></property>
 		<property name="surname" value="Rodriguez"></property>
-		<property name="email" value="maria@hotmail.com" />
+		<property name="email" value="juan@hotmail.com" />
 		<property name="score" value="9" />
 		<property name="isBanned" value="0" />
 		<property name="endorseCustomer">

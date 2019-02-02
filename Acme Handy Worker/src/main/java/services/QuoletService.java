@@ -79,4 +79,15 @@ public class QuoletService {
 		if (oldQuolet.getDraftMode() == 1)
 			this.quoletRepository.delete(q);
 	}
+	public Double a() {
+		return this.quoletRepository.a();
+	}
+
+	public Double b() {
+		return this.quoletRepository.b();
+	}
+
+	public Double c() {
+		return this.quoletRepository.c();
+	}
 }
