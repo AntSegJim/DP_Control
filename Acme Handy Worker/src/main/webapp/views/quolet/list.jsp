@@ -90,7 +90,16 @@
 			<display:column class="color" titleKey="fixUpTask.show">
 				<a href="quolet/handy-worker/show.do?quoletId=${row.id}">
 					<spring:message code="fixUpTask.show" /></a>
+		 </display:column>
+			
+			<display:column class="color" titleKey="fixUpTask.edit">
+				<a>-</a>
 		</display:column>
+		
+		<display:column class="color" titleKey="fixUpTask.delete">
+				<a>-</a>
+		</display:column>
+		
 		</display:table>
 
     </jstl:otherwise>
@@ -101,16 +110,25 @@
 	onclick="javascript:relativeRedir('fix-up-task/handy-worker/list.do');"/>
 </security:authorize>
 
+<input type="hidden" id="lang" name="lang" value="${language}">
 
 <script type="text/javascript">
 var x = document.getElementsByClassName("color");
+var lang = document.getElementById("lang").value;
 var i = 0;
 var d = new Date();
 while (i < x.length) {
-	var year = x[i+1].innerHTML.substr(0, 2);
-	var month = x[i+1].innerHTML.substr(3, 2);
-	var day = x[i+1].innerHTML.substr(6, 2);
-	var d2 = new Date('20'+year, month-1, day);
+	if(lang == 'en'){
+		var year = x[i+1].innerHTML.substr(0, 2);
+		var month = x[i+1].innerHTML.substr(3, 2);
+		var day = x[i+1].innerHTML.substr(6, 2);
+		var d2 = new Date('20'+year, month-1, day);
+	}else{
+		var day = x[i+1].innerHTML.substr(0, 2);
+		var month = x[i+1].innerHTML.substr(3, 2);
+		var year = x[i+1].innerHTML.substr(6, 2);
+		var d2 = new Date('20'+year, month-1, day);
+	}
 	var diff = ((d.getTime()- d2.getTime())/(1000*60*60*24))/30;
 	if(diff < 1){
 		document.getElementsByClassName("color")[i].style.background='yellow';
